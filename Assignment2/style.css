@@ -275,9 +275,11 @@ body {
 }
 .div2 {
 	margin-left: 50px;
+	margin-top: 10px;
 }
 .div1 {
 	margin-left: 20px;
+	margin-top: 10px;
 }
 .movieDText #movieDvotes, .movieDText #movieDreleaseYear {
 	font-size: 11px;
