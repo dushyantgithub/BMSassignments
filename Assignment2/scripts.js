@@ -40,7 +40,7 @@ function showScreen(params) {
       //9 movie.dwtsCount,
       //10 movie.EventImageCode
       paramsnew[0] = paramsnew[0].replace("watch?v=", "embed/");
-      console.log(paramsnew);
+      // console.log(paramsnew);
       if(paramsnew[0].includes('&feature=youtu.be')) {
           paramsnew[0] = paramsnew[0].replace("&feature=youtu.be", "?autoplay=1");
           document.getElementById('movieScreen').src = paramsnew[0];  
@@ -69,6 +69,7 @@ function showScreen(params) {
 function closeScreen() {
       document.getElementById('movieScreenback').classList.remove("show");
       document.getElementById('blurEffect').classList.remove("show");
+      document.getElementById('movieScreen').src = '';
 }
 
 function generateCards(movie) {
@@ -197,7 +198,7 @@ request.onload = function () {
 
 	var moviedatawithkeys = data[1];
 	var movieData = Object.values(moviedatawithkeys);
-	console.log(movieData);
+	// console.log(movieData);
       allMovies = movieData;
       
       var allGenres = [];
