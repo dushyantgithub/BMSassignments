@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bookmyshow</title>
+		<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link href="./style.css" rel="stylesheet">
+	</head>
+	<body>
+	  	<div id="root">
+	  		<div class="header">
+	  			<div class="header_left">
+	  				<button class="coloured_btn">Coming Soon</button>
+	  				<button class="normal_btn">Now Showing</button>
+	  			</div>
+	  			<div class="header_right">
+	  				<div class="dropdown">
+						<button class="dropbtn">Fresh</button>
+						<div class="dropdown-content">
+							<a href="#">Fresh</a>
+							<a href="#">Popular</a>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button id="language_selected" class="dropbtn">All</button>
+						<div id="dropdown_language" class="dropdown-content">
+							<a href="#" onClick="changeLanguage('All')">All</a>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button id="genre_selected" class="dropbtn">All Genres</button>
+						<div id="dropdown_genre" class="dropdown-content">
+							<a href="#" onClick="changeGenre('All')">All Genres</a>
+						</div>
+					</div>
+	  			</div>
+	  		</div>
+	  	</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="./src/moment.js"></script>
+	  	<script src="./scripts.js"></script>
+	</body>
+</html>

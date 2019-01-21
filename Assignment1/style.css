@@ -1,0 +1,9 @@
+body {
+	margin: 0;
+	float: left;
+}
+#root {
+	float: left;
+	width: 100vw;
+	text-align: center;
+}
