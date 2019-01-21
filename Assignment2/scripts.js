@@ -24,15 +24,74 @@ function changeGenre(text) {
       globalGenre = text;
       updatedMovieList(globalLanguage, globalGenre);
 }
+function showScreen(params) {
+      document.getElementById('movieScreenback').classList.add("show");
+      document.getElementById('blurEffect').classList.add("show");
+      var paramsnew = params.split(',');
+      //0 movie.TrailerURL, 
+      //1 movie.EventName, 
+      //2 movie.EventLanguage, 
+      //3 movie.EventGenre, 
+      //4 movie.DispReleaseDate,
+      //5 DispReleaseYear
+      //6 movie.wtsPerc,
+      //7 movie.wtsCount,
+      //8 movie.maybeCount,
+      //9 movie.dwtsCount,
+      //10 movie.EventImageCode
+      paramsnew[0] = paramsnew[0].replace("watch?v=", "embed/");
+      console.log(paramsnew);
+      if(paramsnew[0].includes('&feature=youtu.be')) {
+          paramsnew[0] = paramsnew[0].replace("&feature=youtu.be", "?autoplay=1");
+          document.getElementById('movieScreen').src = paramsnew[0];  
+      } else {
+            document.getElementById('movieScreen').src = paramsnew[0] + '?autoplay=1';
+      }
+      document.getElementById('blurEffect').style.backgroundImage = "url('https://in.bmscdn.com/events/moviecard/"+ paramsnew[10] +".jpg')";
+      document.getElementById('movieDname').innerHTML = paramsnew[1];
+      document.getElementById('movieDlang').innerHTML = paramsnew[2];
+      var genres = paramsnew[3].split('|');
+
+      document.getElementById('movieDgenre1').classList.add("movieDgenre");
+      document.getElementById('movieDgenre1').innerHTML = genres[0];
+      if(genres[1]) {
+            document.getElementById('movieDgenre2').classList.add("movieDgenre");
+            document.getElementById('movieDgenre2').innerHTML = genres[1]; 
+     } if(genres[2]) {
+            document.getElementById('movieDgenre3').classList.add("movieDgenre");
+            document.getElementById('movieDgenre3').innerHTML = genres[2];
+     }
+      document.getElementById('movieDLikes').innerHTML = paramsnew[6];
+      document.getElementById('movieDvotes').innerHTML = paramsnew[7] + ' votes';
+      document.getElementById('movieDreleaseDate').innerHTML = moment(paramsnew[4], "MMMM D YYYY").format("D MMM");
+      document.getElementById('movieDreleaseYear').innerHTML = paramsnew[5];
+}
+function closeScreen() {
+      document.getElementById('movieScreenback').classList.remove("show");
+      document.getElementById('blurEffect').classList.remove("show");
+}
 
 function generateCards(movie) {
 
       const card = document.createElement('div');
       card.setAttribute('class', 'moviecard');
-
-
       const cardImg = document.createElement('img');
       cardImg.setAttribute('class', 'moviecardImg');
+      var params = [];
+      params.push(
+            movie.TrailerURL, 
+            movie.EventName, 
+            movie.EventLanguage, 
+            movie.EventGenre, 
+            movie.DispReleaseDate,
+            movie.wtsPerc,
+            movie.wtsCount,
+            movie.maybeCount,
+            movie.dwtsCount,
+            movie.EventImageCode
+            );
+      // console.log(params, typeof(params));
+      cardImg.setAttribute('onClick', 'showScreen("'+ params +'")');
       // One of the poster is missing
       if(movie.EventImageCode == "sheene-et00044696-17-04-2017-17-59-42") {
             cardImg.setAttribute('src', 'https://in.bmscdn.com/events/moviecard/maragatha-kaadu-et00083831-12-09-2018-10-46-35.jpg');
@@ -138,7 +197,7 @@ request.onload = function () {
 
 	var moviedatawithkeys = data[1];
 	var movieData = Object.values(moviedatawithkeys);
-	// console.log(movieData);
+	console.log(movieData);
       allMovies = movieData;
       
       var allGenres = [];

@@ -168,9 +168,120 @@ body {
 	display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+.hide {
+	display: none;
+}
+.show {
+	display: flex;
+}
+.movieScreenback {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	/*background-color: rgba(0, 0, 0, 0.6);*/
+	z-index: 99;
+	float: left;
+	overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.blurEffect {
+	position: fixed;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(5px);
+    -webkit-filter: blur(25px);
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    z-index: 9;
+    float: left;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+}
+.movieScreenContainer {
+	width: 60%;
+	background-color: rgb(0, 0, 0, 0.9);
+	float: left;
+	height: 75%;
+}
+.movieDetailsContainer {
+	width: 40%;
+	margin-left: 30px;
+	background-color: rgb(0, 0, 0, 0.3);
+	float: left;
+	height: 75%;
+}
+.cross {
+	height: 30px;
+	float: left;
+	width: 100%;
+}
+.cross span {
+	float: right;
+	font-size: 30px;
+	margin-right: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+#movieScreen {
+	width: 100%;
+	float: left;
+	height: 100%;
+    border: none;
+}
+.movieDText, .movieDRating {
+	width: 100%;
+}
+.movieDText {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.movieDText span {
+	color: #fff;
+    margin: 10px 20px;
+    padding: 0px 0;
+    float: left;
+    font-size: 13px;
+}
+#movieDname {
+	font-size: 20px;
+}
+.movieDText .movieDgenre {
+	border: 1px solid white;
+    padding: 5px;
+    font-size: 11px;
+    border-radius: 20px;
+    line-height: 1;
+}
+.div1, .div2, .div1 span, .div1 img, .div2 span, .div2 img {
+	float: left;
+	margin: 0;
+    font-size: 15px;
+}
+.div1 img, .div2 img {
+	width: 30px;
+	margin-right: 20px;
+}
+.div2 {
+	margin-left: 50px;
+}
+.div1 {
+	margin-left: 20px;
+}
+.movieDText #movieDvotes, .movieDText #movieDreleaseYear {
+	font-size: 11px;
+}
 
 /************* Media Queries ***************/
 @media screen and (max-width: 1200px) {
@@ -192,6 +303,18 @@ body {
 	.moviecardImg {
 	    min-width: 0px;
 	    min-height: 0px;
+	}
+	.movieScreenContainer {
+		width: 100%;
+		background-color: rgb(0, 0, 0, 0.9);
+		float: left;
+		height: 40%;
+	}
+	.movieDetailsContainer {
+		width: 100%;
+		height: 60%;
+		background-color: rgb(0, 0, 0, 0.4);
+		float: left;
 	}
 }  
 
